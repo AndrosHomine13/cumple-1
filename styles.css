@@ -5,13 +5,13 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   font-family: 'Verdana', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  flex-direction: column;
 }
 
 .main-container {
@@ -73,7 +73,6 @@ canvas {
   .gallery-left,
   .gallery-right {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
     max-height: none;
@@ -81,7 +80,11 @@ canvas {
 
   .gallery-left img,
   .gallery-right img {
-    height: 250px;
+    height: 230px;
+  }
+
+  .gallery-right img {
+    margin-bottom: 10px;
   }
 
   .canvas-container {

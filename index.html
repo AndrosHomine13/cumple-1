@@ -29,8 +29,8 @@ let c = document.getElementById("c"),
 let w, h, hw, hh;
 
 const opts = {
-  strings: ["¡FELIZ", "CUMPLEAÑOS!", "Pequeña Valentina"],
-  charSize: 40,
+  strings: ["¡FELIZ", "CUMPLEAÑOS!", "Valentina"],
+  charSize: 50,
   charSpacing: 45,
   lineHeight: 50,
 
@@ -395,34 +395,31 @@ function anim() {
 }
 
 function resizeCanvas() {
-  w = window.innerWidth;
-  h = window.innerHeight;
+  w = c.width = window.innerWidth;
+  h = c.height = window.innerHeight;
   hw = w / 2;
   hh = h / 2;
-
-  c.width = w;
-  c.height = h;
-
+  
+  // Redibujar texto
   ctx.font = opts.charSize + "px Verdana";
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
 
-  // Reset letters array with updated positions:
   letters.length = 0;
 
   for (let i = 0; i < opts.strings.length; ++i) {
     const text = opts.strings[i];
     const lineWidth = ctx.measureText(text).width;
-    // Start x to center the entire text
     const startX = hw - lineWidth / 2;
 
-    for (var j = 0; j < text.length; ++j) {
+    for (let j = 0; j < text.length; ++j) {
       const letterX = startX + ctx.measureText(text.slice(0, j)).width + ctx.measureText(text[j]).width / 2;
       const letterY = hh - (opts.strings.length * opts.lineHeight) / 2 + i * opts.lineHeight + opts.lineHeight / 2;
       letters.push(new Letter(text[j], letterX, letterY));
     }
   }
 }
+
 
 window.addEventListener("resize", () => {
   resizeCanvas();
