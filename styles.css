@@ -60,7 +60,16 @@ canvas {
   border-radius: 12px;
 }
 
-
+.marca-agua {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  pointer-events: none;
+  user-select: none;
+}
 /* Responsive para móviles */
 @media (max-width: 768px) {
   .main-container {
